@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ajwhite/raspberry-pi-grocer",
   "dependencies": {
-    "lodash": "^3.10.1"
+    "lodash": "^3.10.1",
+    "twilio": "^2.4.0"
   }
 }
