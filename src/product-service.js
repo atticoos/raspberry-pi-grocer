@@ -9,6 +9,7 @@ module.exports = {
     return request(endpoint).spread(function (response, body) {
       return JSON.parse(body);
     }).then(function (product) {
+      product.valid = JSON.parse(product.valid);
       if (!product.valid) {
         throw new Error(product.reason);
       }

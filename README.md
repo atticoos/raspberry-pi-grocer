@@ -7,6 +7,11 @@ Grocery list automation
 {
   "upcdatabase": {
     "api_key": ""
+  },
+  "twilio": {
+    "sid": "",
+    "token": "",
+    "number": ""
   }
 }
 ```
