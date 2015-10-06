@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/ajwhite/raspberry-pi-grocer",
   "dependencies": {
+    "bluebird": "^2.10.2",
     "lodash": "^3.10.1",
+    "request": "^2.64.0",
     "twilio": "^2.4.0"
   }
 }
