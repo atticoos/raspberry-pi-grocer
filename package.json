@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ajwhite/raspberry-pi-grocer/issues"
   },
-  "homepage": "https://github.com/ajwhite/raspberry-pi-grocer"
+  "homepage": "https://github.com/ajwhite/raspberry-pi-grocer",
+  "dependencies": {
+    "lodash": "^3.10.1"
+  }
 }
