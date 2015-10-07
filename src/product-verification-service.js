@@ -12,6 +12,8 @@ service.requestProductInformation = function (upc) {
     body: "Enter the product name for " + upc
   }).then(function (message) {
     console.log('message', message);
+  }).catch(function (error) {
+    console.log('error sending message', error);
   });
 };
 
