@@ -3,7 +3,7 @@ var restify = require('restify'),
     server = restify.createServer(),
     service = {};
 
-server.use(restify.bodyParser());
+server.use(restify.bodyParser({mapParams: false}));
 server.post('/twilio', twilioHandler);
 
 function twilioHandler (req, res, next) {
