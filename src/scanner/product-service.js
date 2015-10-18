@@ -1,6 +1,6 @@
 var Promise = require('bluebird'),
     request = Promise.promisify(require('request')),
-    Config = require('../.env.json'),
+    Config = require('../../.env.json'),
     BASE_URL = 'http://api.upcdatabase.org/json';
 
 module.exports = {

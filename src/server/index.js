@@ -7,7 +7,7 @@ var restify = require('restify'),
 server.post('/twilio', twilioHandler);
 
 function twilioHandler (req, res, next) {
-  console.log('received  sms', req.body);
+  console.log('received  sms', req.body, req);
   // ProductVerificationService.receiveProductInformation(req.body);
   res.status(200).send();
   next();

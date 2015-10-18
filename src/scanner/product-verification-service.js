@@ -1,4 +1,4 @@
-var Config = require('../.env.json'),
+var Config = require('../../.env.json'),
     Promise = require('bluebird'),
     Twilio = require('twilio')(Config.twilio.sid, Config.twilio.token),
     service = {};
