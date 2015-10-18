@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "scan": "node src/scanner",
+    "serve": "node src/server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
