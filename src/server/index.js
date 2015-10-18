@@ -3,13 +3,14 @@ var restify = require('restify'),
     server = restify.createServer(),
     service = {};
 
-
+server.use(restify.bodyParser());
 server.post('/twilio', twilioHandler);
 
 function twilioHandler (req, res, next) {
-  console.log('received  sms', req.body, req);
+  console.log('received  sms', req.body);
   // ProductVerificationService.receiveProductInformation(req.body);
-  res.status(200).send();
+  res.status(200);
+  res.send();
   next();
 }
 
