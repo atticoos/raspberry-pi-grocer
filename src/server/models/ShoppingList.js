@@ -1,7 +1,7 @@
 var Mongoose = require('mongoose');
 
 var shoppingListSchema = new Mongoose.Schema({
-  _id: Number,
+  created: Date,
   completed: Date,
   items: [{type: Mongoose.Schema.Types.ObjectId, ref: 'ShoppingListItem'}]
 });
