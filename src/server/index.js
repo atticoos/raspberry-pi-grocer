@@ -3,6 +3,9 @@ var restify = require('restify'),
     Config = require('../../.env.json'),
     ShoppingList = require('./models/ShoppingList'),
     ShoppingListItem = require('./models/ShoppingListItem'),
+    Product = require('./models/Product'),
+    UPCService = require('./services/upc-service'),
+    TwilioService = require('./services/twilio-service'),
     // ProductVerificationService = require('./product-verification-service'),
     server = restify.createServer(),
     service = {};
@@ -37,7 +40,6 @@ function listsHandler (req, res) {
   .populate('items')
   .exec()
   .then(function (data) {
-    console.log('got here');
     res.send(data);
   });
 }
@@ -45,6 +47,24 @@ function listHandler () {
 
 }
 function scanHandler (req, res) {
+  Product.find({upc: req.body.upc}).then(function (products) {
+    if (!products || products.length === 0) {
+      throw new Error('not found');
+    }
+    return ShoppingService.addToCurrentList(products[0]);
+  });
+  UPCService.getProductByUpc(req.body.upc).catch(function () {
+    TwilioService.requestProductInformation(req.body.upc);
+    throw new Error('no product found');
+  }).then(function (product) {
+    return ProductService.addToCurrentList({
+      upc: req.body.upc,
+      name: product.itemname || product.description
+    });
+  }).catch(function (error) {
+    res.send('Deferring product to manual entry');
+  })
+  return;
   ShoppingList.find({completed: null}).then(function (lists) {
     var item = ShoppingListItem({
           upc: 12345,
